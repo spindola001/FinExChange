@@ -1,0 +1,30 @@
+﻿version: '3.8'
+services:
+  app:
+    image: finexchange
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sql_server,1433;Database=FinExChangeDB;User Id=sa;Password=5p1nd0l@SQL;Persist Security Info=False;TrustServerCertificate=true;
+    depends_on:
+      - sql_server
+    networks:
+      - app-network
+
+  sql_server:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=5p1nd0l@SQL
+    ports:
+      - "1433:1433"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

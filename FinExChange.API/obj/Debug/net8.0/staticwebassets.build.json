@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "rpsNZh9fBFU6Lvvf28xvNrE/XZ54M5UusKwnNQYgIlU=",
+  "Source": "FinExChange.API",
+  "BasePath": "_content/FinExChange.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

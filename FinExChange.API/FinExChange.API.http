@@ -1,0 +1,6 @@
+@FinExChange.API_HostAddress = http://localhost:5093
+
+GET {{FinExChange.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
