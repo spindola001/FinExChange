@@ -1,6 +1,7 @@
+using FinExChange.Domain.Interfaces;
+using FinExChange.Infrastructure.DataAccess;
+using FinExChange.Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using FinExChange.API.Data;
 
 namespace FinExChange.API
 {
@@ -15,10 +16,11 @@ namespace FinExChange.API
                 options.Configure(context.Configuration.GetSection("Kestrel"));
             });
 
-            builder.Services.AddDbContext<FinExChangeAPIContext>(options =>
+            builder.Services.AddDbContext<FinExChangeDBContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStrings__DefaultConnection") ?? throw new InvalidOperationException("Connection string 'ConnectionStrings__DefaultConnection' not found.")));
 
             // Add services to the container.
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -37,7 +39,6 @@ namespace FinExChange.API
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 

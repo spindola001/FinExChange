@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinExChange.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d2f0f61bb335e814c2bad6f4c879b74ebf608c47")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinExChange.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinExChange.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
