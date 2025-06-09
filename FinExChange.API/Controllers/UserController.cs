@@ -6,8 +6,7 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace FinExChange.API.Controllers
 {
     [ApiController]
-    [ApiVersion("1.0")]
-    [Route("api/v1/[controller]")]
+    [Route("v{version:apiVersion}/finexchange/user")]
     public class UserController : ControllerBase
     {
         private readonly IMediator _mediator;

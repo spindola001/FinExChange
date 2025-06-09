@@ -1,12 +1,7 @@
 using AutoMapper;
-using FinExChange.Application.DTOs;
 using FinExChange.Domain.Entities;
 using FinExChange.Domain.Interfaces;
 using MediatR;
-//using FinExChange.Domain.Entities;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace FinExChange.Application.Commands.Users
 {
