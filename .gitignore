@@ -398,3 +398,11 @@ FodyWeavers.xsd
 *.sln.iml
 /FinExChange.API/bin/Debug/net8.0/appsettings.Development.json
 /FinExChange.API/bin/Debug/net8.0/appsettings.json
+/FinExChange.API/obj/Debug/net8.0/FinExChange.API.assets.cache
+/FinExChange.API/obj/FinExChange.API.csproj.nuget.dgspec.json
+/FinExChange.API/obj/FinExChange.API.csproj.nuget.g.props
+/FinExChange.API/obj/FinExChange.API.csproj.nuget.g.targets
+/FinExChange.API/obj/project.assets.json
+/FinExChange.API/obj/project.nuget.cache
+/FinExChange.Infrastructure/FinExChange.Infrastructure.csproj
+/FinExChange.Application/FinExChange.Application.csproj

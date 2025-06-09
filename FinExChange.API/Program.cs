@@ -2,6 +2,7 @@ using FinExChange.Domain.Interfaces;
 using FinExChange.Infrastructure.DataAccess;
 using FinExChange.Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 namespace FinExChange.API
 {
@@ -22,6 +23,7 @@ namespace FinExChange.API
             // Add services to the container.
             builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+            //builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -30,6 +32,7 @@ namespace FinExChange.API
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
+            // Habilita o Swagger no ambiente de desenvolvimento
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();

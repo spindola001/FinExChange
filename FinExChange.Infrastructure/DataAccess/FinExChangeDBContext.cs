@@ -1,5 +1,6 @@
 ﻿using FinExChange.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace FinExChange.Infrastructure.DataAccess
 {
@@ -14,8 +15,7 @@ namespace FinExChange.Infrastructure.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-            // Configure entity mappings here if needed
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(FinExChangeDBContext).Assembly);
         }
     }
 }

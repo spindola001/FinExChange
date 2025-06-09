@@ -1,3 +1,7 @@
+using AutoMapper;
+using FinExChange.Application.DTOs;
+using FinExChange.Domain.Entities;
+using FinExChange.Domain.Interfaces;
 using MediatR;
 //using FinExChange.Domain.Entities;
 using System;
@@ -8,24 +12,18 @@ namespace FinExChange.Application.Commands.Users
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
     {
-        public Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        private readonly IMapper? _mapper;
+        private readonly IUserRepository? _userRepository;
+
+        public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             // Lógica para criar o usuário
-            //var user = new User
-            //{
-            //    Id = Guid.NewGuid(),
-            //    Name = request.Name,
-            //    Email = request.Email,
-            //    PasswordHash = request.PasswordHash,
-            //    PhoneNumber = request.PhoneNumber,
-            //    CreatedAt = DateTime.UtcNow,
-            //    Transactions = new List<Transaction>()
-            //};
+            User? userEntity = _mapper?.Map<User>(request) ?? throw new Exception("Erro ao mapear o usuário.");
 
             // Simulação de persistência
-            // _userRepository.Add(user);
+            Guid newUserId = await (_userRepository?.CreateUserAsync(userEntity) ?? throw new Exception("Erro ao criar o usuário."));
 
-            return Task.FromResult(Guid.NewGuid());
+            return newUserId;
         }
     }
 }

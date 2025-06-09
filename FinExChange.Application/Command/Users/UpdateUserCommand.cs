@@ -3,7 +3,7 @@ using System;
 
 namespace FinExChange.Application.Commands.Users
 {
-    public class UpdateTransactionCommand : IRequest<bool>
+    public class UpdateUserCommand : IRequest<bool>
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
