@@ -7,7 +7,7 @@ namespace FinExChange.Infrastructure.Mappings
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.ToTable("Users");
+            builder.ToTable("User");
 
             builder.HasKey(u => u.Id);
 

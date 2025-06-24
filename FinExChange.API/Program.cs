@@ -1,11 +1,16 @@
+using AutoMapper;
+using FinExChange.Application.Commands.Users;
+using FinExChange.Application.Profiles;
 using FinExChange.Domain.Interfaces;
 using FinExChange.Infrastructure.DataAccess;
 using FinExChange.Infrastructure.Repository;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace FinExChange.API
 {
@@ -24,6 +29,12 @@ namespace FinExChange.API
                 options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStrings__DefaultConnection") ?? throw new InvalidOperationException("Connection string 'ConnectionStrings__DefaultConnection' not found.")));
 
             // Add services to the container.
+            builder.Services.AddAutoMapper(Assembly.Load("FinExChange.Application"));
+            builder.Services.AddAutoMapper(typeof(UserProfile));
+            builder.Services.AddMediatR(config =>
+            {
+                config.RegisterServicesFromAssembly(AppDomain.CurrentDomain.Load("FinExChange.Application"));
+            });
             builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             //builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

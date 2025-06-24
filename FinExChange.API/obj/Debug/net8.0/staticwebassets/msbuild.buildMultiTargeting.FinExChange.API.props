@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\FinExChange.API.props" />
-</Project>

@@ -31,11 +31,18 @@ namespace FinExChange.API.Controllers
         [SwaggerResponse(400, "Dados inválidos para criação do usuário.")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserCommand command)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
-            var result = await _mediator.Send(command);
-            return NoContent();
+                var result = await _mediator.Send(command);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         [HttpPut]
